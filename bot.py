@@ -22,7 +22,7 @@ logger = logging.getLogger(__name__)
 BOT_TOKEN = os.getenv("BOT_TOKEN", "")
 
 # ID разрешенного пользователя
-ALLOWED_USER_ID = os.getenv("ALLOWED_USER", "")
+ALLOWED_USER_ID = int(os.getenv("ALLOWED_USER_ID", ""))
 
 # Инициализация диспетчера
 dp = Dispatcher()
