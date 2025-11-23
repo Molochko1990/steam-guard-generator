@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  steam-guard-bot:
+    build: .
+    container_name: steam-guard-bot
+    restart: unless-stopped
+    volumes:
+      # Монтируем папку с maFiles
+      - ./maFiles:/app/maFiles
+      # Монтируем .env файл (если нужно обновлять без пересборки)
+      - ./.env:/app/.env
+    # Логи
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
